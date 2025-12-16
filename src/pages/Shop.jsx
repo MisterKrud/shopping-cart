@@ -41,6 +41,7 @@ const Shop = () => {
         const currentItemIndex = newArray.findIndex(product => product.id === id); 
         const newProduct = newArray.find(product => product.id === id);              
         newProduct.number = newProduct.number+1;
+
        newArray.splice(currentItemIndex, 1, newProduct);
         setProducts(newArray);
   
@@ -54,7 +55,14 @@ const Shop = () => {
         const newArray = [...products]
         const currentItemIndex = newArray.findIndex(product => product.id === id); 
         const newProduct = newArray.find(product => product.id === id);        
-        newProduct.number> 0 ? newProduct.number= newProduct.number-1 : newProduct.number = 0;
+        if(newProduct.number> 1){
+            newProduct.number= newProduct.number-1
+         } else {
+            newProduct.number = 0;
+            newProduct.inCart = false;
+        }
+            
+       
         newArray.splice(currentItemIndex,1 , newProduct);
         setProducts(newArray);
      
@@ -65,7 +73,8 @@ const Shop = () => {
         const newArray = [...products]
         const currentItemIndex = newArray.findIndex(product => product.id === id); 
         const newProduct = newArray.find(product => product.id === id);     
-        newProduct.inCart = true
+        newProduct.inCart = true;
+        newProduct.number = 1;
          newArray.splice(currentItemIndex,1 , newProduct);
         setProducts(newArray);
         console.log(newProduct)
@@ -101,7 +110,7 @@ const Shop = () => {
             {/* <Categories products = {products}/> */}
         <Products products = {products}  onIncrementClick={handleIncrement} onDecrementClick={handleDecrement} addToCart={addToCart} />
         <hr />
-        <Cart products = {products} onClick={removeFromCart} />
+        <Cart products = {products} onIncrementClick={handleIncrement} onDecrementClick={handleDecrement} onRemoveClick={removeFromCart} />
 
         </>
         )

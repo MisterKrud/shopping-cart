@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 // import Shop from "./Shop"
 
-const Cart = ({ products, onClick }) => {
+const Cart = ({ products, onIncrementClick,onDecrementClick, onRemoveClick}) => {
   const cartItems = products.filter((product) => product.inCart === true);
   let priceArray = [];
   return cartItems.length > 0 ? (
@@ -16,9 +16,12 @@ const Cart = ({ products, onClick }) => {
                 <span>
                   <strong>{cartItems.indexOf(item)+1}. {item.title}:</strong>
                 </span>{" "}
-                ${item.price * item.number} ({item.number})
+                ${item.price * item.number} 
               </p>
-              <button onClick={()=>onClick(item.id)}>Remove</button>
+              <button onClick={()=>onIncrementClick(item.id)}>+</button>
+              <p>{item.number}</p>
+              <button onClick={()=>(onDecrementClick(item.id))}>-</button>
+              <button onClick={()=>onRemoveClick(item.id)}>Remove</button>
             </div>
           );
         })}
