@@ -1,12 +1,13 @@
 import { useState, useEffect} from "react";
 import Cart from "./Cart";
 import Categories from "../../pages/Categories";
+import Products from "./Products";
 
 
 
 const Shop = () => {
     const [data, setData] = useState(null);
-    const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState([]);
   
     
 
@@ -25,12 +26,13 @@ const Shop = () => {
     useEffect(()=>{
         if(data){
             const productList = data.map(d =>{
-                return {id: d.id, title: d.title, price: d.price, description: d.description, category: d.category, image: d.image, inCart: 0 }
+                return {id: d.id, title: d.title, price: d.price, description: d.description, category: d.category, image: d.image, number: 0, inCart: false }
             })
             setProducts(productList)
         }
     },[data])
 
+ 
 
 
 
@@ -38,7 +40,7 @@ const Shop = () => {
         const newArray = [...products]
         const currentItemIndex = newArray.findIndex(product => product.id === id); 
         const newProduct = newArray.find(product => product.id === id);              
-        newProduct.inCart = newProduct.inCart+1;
+        newProduct.number = newProduct.number+1;
        newArray.splice(currentItemIndex, 1, newProduct);
         setProducts(newArray);
   
@@ -52,32 +54,54 @@ const Shop = () => {
         const newArray = [...products]
         const currentItemIndex = newArray.findIndex(product => product.id === id); 
         const newProduct = newArray.find(product => product.id === id);        
-        newProduct.inCart> 0 ? newProduct.inCart= newProduct.inCart-1 : newProduct.inCart = 0;
+        newProduct.number> 0 ? newProduct.number= newProduct.number-1 : newProduct.number = 0;
         newArray.splice(currentItemIndex,1 , newProduct);
         setProducts(newArray);
      
     }
 
+
+    const addToCart = (id) => {
+        const newArray = [...products]
+        const currentItemIndex = newArray.findIndex(product => product.id === id); 
+        const newProduct = newArray.find(product => product.id === id);     
+        newProduct.inCart = true
+         newArray.splice(currentItemIndex,1 , newProduct);
+        setProducts(newArray);
+        console.log(newProduct)
+        console.log(products)
+    }
+
+    const removeFromCart = (id) => {
+         const newArray = [...products]
+        const currentItemIndex = newArray.findIndex(product => product.id === id); 
+        const newProduct = newArray.find(product => product.id === id);     
+        newProduct.inCart = false
+        newProduct.number=0;
+         newArray.splice(currentItemIndex,1 , newProduct);
+        setProducts(newArray);
+
+    }
+
+    // const handleProduct = (id) => {
+    //     const newArray = [...products]
+    //     const currentItemIndex = newArray.findIndex(product => product.id === id); 
+    //     const newProduct = newArray.find(product => product.id === id);     
+    //     newProduct.inCart === true
+    //      newArray.splice(currentItemIndex,1 , newProduct);
+    //     setProducts(newArray);
+    // }
+
+
+   
+
     return(
-        products && (
+        products.length>0 && (
             <>
-            <Categories products = {products} />
-    <div>{products.map(product => {
-        return(
-            <div key={product.id}>
-            <h3>{product.title}</h3>
-            <img src={product.image} alt="" />
-            <p>{product.description}</p>
-            <p>${product.price}</p>
-            <button onClick = {()=>handleIncrement(product.id)}>+</button>
-            <p>{product.inCart}</p>
-            <button onClick = {()=>handleDecrement(product.id)}>-</button>
-            <hr />
-            </div>
-        )
-    })}</div>
+            {/* <Categories products = {products}/> */}
+        <Products products = {products}  onIncrementClick={handleIncrement} onDecrementClick={handleDecrement} addToCart={addToCart} />
         <hr />
-        <Cart products = {products} />
+        <Cart products = {products} onClick={removeFromCart} />
 
         </>
         )

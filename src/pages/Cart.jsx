@@ -1,22 +1,24 @@
 import PropTypes from "prop-types";
 // import Shop from "./Shop"
 
-const Cart = ({ products }) => {
-  const cartItems = products.filter((product) => product.inCart > 0);
+const Cart = ({ products, onClick }) => {
+  const cartItems = products.filter((product) => product.inCart === true);
   let priceArray = [];
   return cartItems.length > 0 ? (
     <div>
       <div>
         {cartItems.map((item) => {
-          priceArray.push(item.price * item.inCart);
+          priceArray.push(item.price * item.number);
           return (
             <div key={item.id}>
+              
               <p>
                 <span>
-                  <strong>{item.title}:</strong>
+                  <strong>{cartItems.indexOf(item)+1}. {item.title}:</strong>
                 </span>{" "}
-                ${item.price * item.inCart} ({item.inCart})
+                ${item.price * item.number} ({item.number})
               </p>
+              <button onClick={()=>onClick(item.id)}>Remove</button>
             </div>
           );
         })}
