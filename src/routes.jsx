@@ -1,7 +1,8 @@
 import App from "./App";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Categories from "../pages/Categories";
+import Categories from "./pages/Categories";
+import NavBar from "./components/NavBar";
 import Cart from "./pages/Cart";
 import Shop from "./pages/Shop";
 
@@ -10,6 +11,7 @@ const routes = [
         path: "/",
         element: <App />,
     },
+  
     {
         path: "home",
         element: <Home />
@@ -17,7 +19,8 @@ const routes = [
     {
         path: "shop",
         element: <Shop />
-    }
+    },
+    
 
 ]
 

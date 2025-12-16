@@ -1,0 +1,23 @@
+*{
+    border: gray solid 0.5px;
+}
+
+.nav{
+ 
+  
+   margin: 0 auto;
+   display: flex;
+    justify-content: space-between;
+
+   position:fixed;
+   
+    background-color: white;
+    margin-bottom: .2em;
+   
+    
+    top: 0;
+    left:3rem;
+    right: 3rem;
+    
+}
+
