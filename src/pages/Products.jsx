@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
 
-const Products = ({products, onIncrementClick, onDecrementClick, addToCart, filter})  => {
+const Products = ({products, onIncrementClick, onDecrementClick, addToCart, filter, onChange})  => {
     let filteredProducts
     
    
@@ -20,7 +20,7 @@ const Products = ({products, onIncrementClick, onDecrementClick, addToCart, filt
             <p>{product.description}</p>
             <p>${product.price}</p>
             <button onClick = {() =>onIncrementClick(product.id)}>+</button>
-            <p>{product.number}</p>
+            <input type="number" value={product.number} onChange={(e)=>onChange(e,product.id)} />
             <button onClick = {()=> onDecrementClick(product.id)}>-</button>
             <br />
             <button onClick ={()=> addToCart(product.id)}>Add to cart</button>
@@ -32,9 +32,20 @@ const Products = ({products, onIncrementClick, onDecrementClick, addToCart, filt
 }
 
 Products.propTypes = {
-    products: PropTypes.array,
+    products: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            price: PropTypes.number.isRequired,
+            inCart: PropTypes.bool.isRequired
+        })
+    ),
     onIncrementClick: PropTypes.func,
     onDecrementClick: PropTypes.func,
+    addToCart: PropTypes.func,
+    filter: PropTypes.string,
+    onChange: PropTypes.func,
+
 }
 
 export default Products
