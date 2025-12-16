@@ -6,7 +6,7 @@ import Cart from "./Cart";
 const Shop = () => {
     const [data, setData] = useState(null);
     const [products, setProducts] = useState(null);
-    const [inCart, setInCart] = useState([]);
+  
     
 
     useEffect(() =>{
@@ -24,7 +24,7 @@ const Shop = () => {
     useEffect(()=>{
         if(data){
             const productList = data.map(d =>{
-                return {id: d.id, title: d.title, price: d.price, description: d.description, category: d.category, image: d.image, inCart: 0}
+                return {id: d.id, title: d.title, price: d.price, description: d.description, category: d.category, image: d.image, inCart: 0 }
             })
             setProducts(productList)
         }
@@ -40,9 +40,9 @@ const Shop = () => {
         newProduct.inCart = newProduct.inCart+1;
        newArray.splice(currentItemIndex, 1, newProduct);
         setProducts(newArray);
-        setInCart(products.filter(product => product.inCart>0))
+  
         console.log('inCart...')
-        console.log(inCart)
+   
         console.log('products')
         console.log(products)
     }
@@ -54,7 +54,7 @@ const Shop = () => {
         newProduct.inCart> 0 ? newProduct.inCart= newProduct.inCart-1 : newProduct.inCart = 0;
         newArray.splice(currentItemIndex,1 , newProduct);
         setProducts(newArray);
-        setInCart(products.filter(product => product.inCart>0))
+     
     }
 
     return(
@@ -75,7 +75,7 @@ const Shop = () => {
         )
     })}</div>
         <hr />
-        <Cart cartItems = {inCart} />
+        <Cart products = {products} />
 
         </>
         )
