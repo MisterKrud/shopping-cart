@@ -8,6 +8,7 @@ import Products from "./Products";
 const Shop = () => {
     const [data, setData] = useState(null);
     const [products, setProducts] = useState([]);
+    const [category, setCategory] = useState(null)
   
     
 
@@ -26,7 +27,7 @@ const Shop = () => {
     useEffect(()=>{
         if(data){
             const productList = data.map(d =>{
-                return {id: d.id, title: d.title, price: d.price, description: d.description, category: d.category, image: d.image, number: 0, inCart: false }
+                return {id: d.id, title: d.title, price: d.price.toFixed(2), description: d.description, category: d.category, image: d.image, number: 0, inCart: false }
             })
             setProducts(productList)
         }
@@ -77,8 +78,7 @@ const Shop = () => {
         newProduct.number = 1;
          newArray.splice(currentItemIndex,1 , newProduct);
         setProducts(newArray);
-        console.log(newProduct)
-        console.log(products)
+       
     }
 
     const removeFromCart = (id) => {
@@ -101,14 +101,21 @@ const Shop = () => {
     //     setProducts(newArray);
     // }
 
+    
+   const handleFilter = (newCategory) => {
+    console.log('newCategory')
+    console.log(newCategory)
+    category === "all" ? setCategory(null) : setCategory(newCategory)
+    console.log(category)
+    
 
-   
+   }
 
     return(
         products.length>0 && (
             <>
-            {/* <Categories products = {products}/> */}
-        <Products products = {products}  onIncrementClick={handleIncrement} onDecrementClick={handleDecrement} addToCart={addToCart} />
+            <Categories products = {products} onClick = {handleFilter} />
+        <Products products = {products} filter={category} onIncrementClick={handleIncrement} onDecrementClick={handleDecrement} addToCart={addToCart} />
         <hr />
         <Cart products = {products} onIncrementClick={handleIncrement} onDecrementClick={handleDecrement} onRemoveClick={removeFromCart} />
 

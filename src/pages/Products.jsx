@@ -1,9 +1,18 @@
 import PropTypes from "prop-types"
 
 
-const Products = ({products, onIncrementClick, onDecrementClick, addToCart})  => {
+const Products = ({products, onIncrementClick, onDecrementClick, addToCart, filter})  => {
+    let filteredProducts
+    
+   
+   filter && filter != "all" ?  filteredProducts = products.filter(product=> product.category === filter) : filteredProducts = products
+   console.log('FilteredProducts')
+   console.log(filter)
+   console.log(filteredProducts)
+  
+     
     return (
-        <div>{products.map(product => {
+        <div>{filteredProducts.map(product => {
         return(
             <div key={product.id}>
             <h3>{product.title}</h3>
