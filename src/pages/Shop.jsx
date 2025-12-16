@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react";
 import Cart from "./Cart";
+import Categories from "../../pages/Categories";
 
 
 
@@ -60,6 +61,7 @@ const Shop = () => {
     return(
         products && (
             <>
+            <Categories products = {products} />
     <div>{products.map(product => {
         return(
             <div key={product.id}>

@@ -1,4 +1,4 @@
-// import { useEffect } from "react"
+import PropTypes from "prop-types";
 // import Shop from "./Shop"
 
 const Cart = ({ products }) => {
@@ -34,6 +34,11 @@ const Cart = ({ products }) => {
       <p>No items in cart</p>
     </div>
   );
+
+
 };
 
+  Cart.propTypes = {
+    products: PropTypes.array,
+  };
 export default Cart;
