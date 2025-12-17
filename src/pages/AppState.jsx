@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
-import Cart from "./Cart";
-import Categories from "./Categories";
-import Shop from "./Shop";
 import NavBar from "../components/NavBar";
 import { Outlet } from "react-router";
-import { Link } from "react-router";
-
 
 const AppState = () => {
   const [data, setData] = useState(null);
@@ -43,25 +38,22 @@ const AppState = () => {
     }
   }, [data]);
 
-
-  
   useEffect(() => {
     const purchasedItems = [];
     products.forEach((product) => {
       product.inCart ? purchasedItems.push(product.number) : null;
-      
     });
     purchasedItems.length > 0
       ? setNumberOfItems(purchasedItems.reduce((total, value) => total + value))
       : setNumberOfItems(0);
-      
   }, [products]);
-
 
   useEffect(() => {
     const purchasedItems = [];
     products.forEach((product) => {
-     product.inCart ? purchasedItems.push(product.price * product.number) : null;
+      product.inCart
+        ? purchasedItems.push(product.price * product.number)
+        : null;
       purchasedItems.length > 0
         ? setTotalPrice(purchasedItems.reduce((total, value) => total + value))
         : setTotalPrice(0);
@@ -73,7 +65,6 @@ const AppState = () => {
     const currentItemIndex = newArray.findIndex((product) => product.id === id);
     const newProduct = newArray[currentItemIndex];
     newProduct.number = newProduct.number + 1;
-
     newArray.splice(currentItemIndex, 1, newProduct);
     setProducts(newArray);
   };
@@ -116,58 +107,42 @@ const AppState = () => {
     const newArray = [...products];
     const currentItemIndex = newArray.findIndex((product) => product.id === id);
     const newProduct = newArray[currentItemIndex];
-    e.target.value=== "" ? e.target.value = 0 : e.target.value;
+    e.target.value === "" ? (e.target.value = 0) : e.target.value;
     newProduct.number = parseInt(e.target.value);
-    
+
     newArray.splice(currentItemIndex, 1, newProduct);
     setProducts(newArray);
   };
 
-  // const handleProduct = (id) => {
-  //     const newArray = [...products]
-  //     const currentItemIndex = newArray.findIndex(product => product.id === id);
-  //     const newProduct = newArray.find(product => product.id === id);
-  //     newProduct.inCart === true
-  //      newArray.splice(currentItemIndex,1 , newProduct);
-  //     setProducts(newArray);
-  // }
-
   const handleFilter = (newCategory) => {
-    console.log("newCategory");
-    console.log(newCategory);
     category === "all" ? setCategory(null) : setCategory(newCategory);
-    console.log(category);
   };
-
 
   return (
     products.length > 0 && (
       <>
-        <NavBar items={numberOfItems} price={parseFloat((totalPrice*10)/10).toFixed(2)} />
-        
+        <NavBar
+          items={numberOfItems}
+          price={parseFloat((totalPrice * 10) / 10).toFixed(2)}
+        />
 
-       
-      
         <Outlet
           context={{
-          products,
-          category,
-          handleFilter,
-          handleIncrement,
-          handleDecrement,
-          addToCart,
-          removeFromCart,
-          handleQuantityChange,
-          numberOfItems,
-          totalPrice,
+            products,
+            category,
+            handleFilter,
+            handleIncrement,
+            handleDecrement,
+            addToCart,
+            removeFromCart,
+            handleQuantityChange,
+            numberOfItems,
+            totalPrice,
           }}
-          />
-   
+        />
       </>
     )
   );
 };
-
-
 
 export default AppState;

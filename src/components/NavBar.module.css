@@ -1,6 +1,3 @@
-/* *{
-    border: gray solid 0.5px;
-} */
 
 .navContainer {
   background-color: rgb(66, 66, 148);
@@ -10,14 +7,13 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: .2rem 3rem 0;
-  
+  padding: 0.2rem 3rem 0;
 }
 
-.Icon{
+.Icon {
   position: relative;
-  top: .2rem;
-  margin: 0 .1rem;
+  top: 0.2rem;
+  margin: 0 0.1rem;
 }
 
 .link {
@@ -25,11 +21,30 @@
   color: white;
   text-decoration: none;
   position: relative;
-  padding: .1rem;
-  border-radius: .2rem;
+  padding: 0.1rem;
+  border-radius: 0.2rem;
+  font-size: 1.2rem;
 }
 
-.link:hover{
+@media (max-width: 350px) {
+  .link {
+    font-size: 0.8rem;
+  }
+  .nav-container {
+    padding: 0;
+  }
+
+  .Icon {
+    height: 16px;
+  }
+
+  .cartNumber {
+    font-size: 0.6rem;
+    padding: 0 0.1rem;
+  }
+}
+
+.link:hover {
   background-color: white;
   color: rgb(66, 66, 148);
 }
@@ -37,6 +52,7 @@
 .nav {
   background-color: rgb(66, 66, 148);
   color: white;
+  max-width: 870px;
 
   margin: 0 auto;
   display: flex;
@@ -48,12 +64,12 @@
   opacity: 1;
 }
 
-.cartNumber{
+.cartNumber {
   position: relative;
-  font-size: .8rem;
+  font-size: 0.8rem;
   background-color: white;
-  color:rgb(66, 66, 148);
-  padding: 0 .25rem;
+  color: rgb(66, 66, 148);
+  padding: 0 0.25rem;
   border-radius: 35%;
-  top: .2rem;
+  top: 0.2rem;
 }

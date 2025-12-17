@@ -1,124 +1,123 @@
-.shopContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+img {
+  width: 120px;
+  height: 120px;
 }
 
-
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
-    box-shadow: 2px 2px 4px gray;;
-    padding: 1.2rem 0 0 0;
-    margin: .5rem;
-    
-
+@media (max-width: 400px) {
+  img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
-.productName{
-    margin: .5rem 1rem 0 1rem;
-    padding:0 1rem 0 1rem;
+.shopContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.input{
-    width: 1.5rem;
-    padding: .2rem .5rem .2rem 1.8rem;
-    border: none;
-    background-color:#b1b0b0 
-   
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 2px 2px 4px gray;
+  padding: 1.2rem 0 0 0;
+  margin: 0.5rem;
 }
 
-.changeButton{
-    padding: 0 .6rem .2rem;
-    border: #b1b0b0 solid .2px;
-    margin: 0 .1rem;;
-
- 
+.productName {
+  margin: 0.5rem 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
-.addButton{
-    padding: .3rem .6rem .5rem;
-    background-color:#b1b0b0 ;
-    margin: 0 .1rem 0 0;
-    border-radius: 0 .5rem   .5rem 0;
+.input {
+  width: 1.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 1.8rem;
+  border: none;
+  background-color: #b1b0b0;
 }
 
-.minusButton{
-    padding: .3rem .6rem .5rem;
-    background-color:#b1b0b0 ;
-    margin: 0 0 0 .1rem;
-    border-radius: .5rem 0 0 .5rem;
+.changeButton {
+  padding: 0 0.6rem 0.2rem;
+  border: #b1b0b0 solid 0.2px;
+  margin: 0 0.1rem;
 }
 
-.minusButton:hover, .addButton:hover, .input:hover{
-     background-color:#535252;
-     color: white;
+.addButton {
+  padding: 0.3rem 0.6rem 0.5rem;
+  background-color: #b1b0b0;
+  margin: 0 0.1rem 0 0;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
-.input:focus{
-    background-color: white;
-    color: black;
+.minusButton {
+  padding: 0.3rem 0.6rem 0.5rem;
+  background-color: #b1b0b0;
+  margin: 0 0 0 0.1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.buttonContainer{
-    display: flex;
-    justify-content: center;
-
+.minusButton:hover,
+.addButton:hover,
+.input:hover {
+  background-color: #535252;
+  color: white;
 }
 
-.addToCartButton{
-    padding: .4rem;
-   background-color: darkblue;
-   color: white;
-    margin-top: 1rem;
-    border: none;
-    border-radius: 0;
-    width: 100%;
-
+.input:focus {
+  background-color: white;
+  color: black;
 }
 
-.addToCartButton:hover{
- 
-   background-color:crimson;
-   color: white;
-   
+.buttonContainer {
+  display: flex;
+  justify-content: center;
 }
 
-.hoverText{
-    visibility: hidden;
+.addToCartButton {
+  padding: 0.4rem;
+  background-color: darkblue;
+  color: white;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0;
+  width: 100%;
 }
 
-.hoverText:hover{
-    visibility: visible;
+.addToCartButton:hover {
+  background-color: crimson;
+  color: white;
 }
 
-.imgContainer{
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    align-items:center
+.hoverText {
+  visibility: hidden;
 }
 
+.hoverText:hover {
+  visibility: visible;
+}
 
-.caption{
-    position: absolute;
-    font-style: italic;
-    visibility: hidden;
-    font-size: .8rem;
+.imgContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.caption {
+  position: absolute;
+  font-style: italic;
+  visibility: hidden;
+  font-size: 0.8rem;
   bottom: 0;
-    right: 0;
-   
-  
-    opacity:0;
-    padding: 1rem;
-    box-shadow: 2px 2px 2px;
-    border-radius: .2em;
-   
+  right: 0;
+
+  opacity: 0;
+  padding: 1rem;
+  box-shadow: 2px 2px 2px;
+  border-radius: 0.2em;
 }
-
-
 
 /* .caption:hover{
     visibility: visible;
@@ -133,4 +132,3 @@
 /* .img:hover{
     position: relative;
     left:0; */
-

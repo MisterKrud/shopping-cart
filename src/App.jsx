@@ -1,12 +1,6 @@
-import "./App.css"
-import { Outlet } from "react-router";
-
+import "./App.css";
 function App() {
-  return (
- 
-      <AppState />
-  
-  );
+  return <AppState />;
 }
 
 export default App;

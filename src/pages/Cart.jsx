@@ -3,10 +3,6 @@ import { useOutletContext } from "react-router-dom";
 import styles from "./Cart.module.css"
 import { Trash2 } from "lucide-react";
 
-
-
-
-
 const Cart = () => {
   const {
   products,

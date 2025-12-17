@@ -10,11 +10,8 @@ const Categories = ({ products, onClick }) => {
   const categories = Array.from(new Set(categoryArray));
   categories.push("all");
 
-  console.log(categories);
-
   return (
     <>
-   
       <div>
         <div className={style.categories}>
           {categories.map((category) => {

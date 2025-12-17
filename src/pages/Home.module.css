@@ -1,0 +1,62 @@
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min-max(350px, 1fr));
+}
+
+.card {
+  composes: card from "./Shop.module.css";
+  position: relative;
+  border-radius: 2rem;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.card:hover {
+  background-color: rgb(201, 170, 230);
+}
+
+.card > div {
+  padding: 3rem;
+}
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+a:hover {
+  color: white;
+  font-weight: bold;
+}
+
+.icon {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+h1 {
+  border: #162b3f 3px solid;
+  padding-bottom: 1rem;
+  transform: skew(-20deg);
+  box-shadow: 3px 3px 3px;
+}
+h1::first-letter {
+  font-size: 4rem;
+}
+
+.frontPageLink {
+  color: #561a8e;
+  margin: 0;
+}
+
+.frontPageLink:hover {
+  color: white;
+}
+
+.icon:hover {
+  color: white;
+}
