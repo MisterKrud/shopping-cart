@@ -150,5 +150,6 @@
         display: flex !important;
         justify-content: center;
     }
+    .text{text-align: center;}
     
 }
