@@ -43,6 +43,31 @@ const AppState = () => {
     }
   }, [data]);
 
+
+  
+  useEffect(() => {
+    const purchasedItems = [];
+    products.forEach((product) => {
+      product.inCart ? purchasedItems.push(product.number) : null;
+      
+    });
+    purchasedItems.length > 0
+      ? setNumberOfItems(purchasedItems.reduce((total, value) => total + value))
+      : setNumberOfItems(0);
+      
+  }, [products]);
+
+
+  useEffect(() => {
+    const purchasedItems = [];
+    products.forEach((product) => {
+     product.inCart ? purchasedItems.push(product.price * product.number) : null;
+      purchasedItems.length > 0
+        ? setTotalPrice(purchasedItems.reduce((total, value) => total + value))
+        : setTotalPrice(0);
+    });
+  }, [products]);
+
   const handleIncrement = (id) => {
     const newArray = [...products];
     const currentItemIndex = newArray.findIndex((product) => product.id === id);
@@ -114,25 +139,6 @@ const AppState = () => {
     console.log(category);
   };
 
-  useEffect(() => {
-    const purchasedItems = [];
-    products.forEach((product) => {
-      purchasedItems.push(product.number);
-    });
-    purchasedItems.length > 0
-      ? setNumberOfItems(purchasedItems.reduce((total, value) => total + value))
-      : null;
-  }, [products]);
-
-  useEffect(() => {
-    const purchasedItems = [];
-    products.forEach((product) => {
-      purchasedItems.push(product.price * product.number);
-      purchasedItems.length > 0
-        ? setTotalPrice(purchasedItems.reduce((total, value) => total + value))
-        : null;
-    });
-  }, [products]);
 
   return (
     products.length > 0 && (

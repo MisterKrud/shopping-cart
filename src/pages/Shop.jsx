@@ -19,20 +19,24 @@ const Shop = ()  => {
         <Categories products={products} onClick={handleFilter}/>
         <div>{filteredProducts.map(product => {
         return(
-            <div key={product.id}>
-            <h3>{product.title}</h3>
-            <img src={product.image} alt={product.title} />
-            <p>{product.description}</p>
+            <div className = {style.card}key={product.id}>
+            
+           <div className={style.imgContainer}>
+                
+            <img className={style.img} src={product.image} alt={product.title}  />
+            <div className={style.caption}>{product.description}</div>
+            </div>
+       
+            <h5 className={style.productName}>{product.title}</h5>
             <p>${product.price}</p>
             <div className= {style.buttonContainer}>
-            <button className={style.changeButton} onClick = {() =>handleDecrement(product.id)}>-</button>
-            <input className={style.input} type="text" inputmode="numeric" value={product.number} onChange={(e)=>handleQuantityChange(e,product.id)} />
-            <button className={style.changeButton} onClick = {()=> handleIncrement(product.id)}>+</button>
+            <button className={style.minusButton} onClick = {() =>handleDecrement(product.id)}>-</button>
+            <input className={style.input} type="text" inputMode="numeric" value={product.number} onChange={(e)=>handleQuantityChange(e,product.id)} />
+            <button className={style.addButton} onClick = {()=> handleIncrement(product.id)}>+</button>
            
             </div>
             <button className={style.addToCartButton} onClick ={()=> addToCart(product.id)}>Add to cart</button>
-            
-            <hr />
+         
             </div>
         )
     })}</div>

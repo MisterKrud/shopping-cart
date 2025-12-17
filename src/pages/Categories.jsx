@@ -14,7 +14,7 @@ const Categories = ({ products, onClick }) => {
 
   return (
     <>
-      <div>Categories</div>
+   
       <div>
         <div className={style.categories}>
           {categories.map((category) => {

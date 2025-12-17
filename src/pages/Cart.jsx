@@ -13,6 +13,8 @@ const Cart = () => {
   const cartItems = products.filter((product) => product.inCart === true);
   let priceArray = [];
   let productNumber = [];
+  console.log('cartItems')
+  console.log(cartItems)
   return cartItems.length > 0 ? (
     <div>
       <h3>Your cart</h3>
