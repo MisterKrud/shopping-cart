@@ -30,7 +30,7 @@ const Cart = () => {
           return (
             <div key={item.id} className={styles.card}>
                 <div className={styles.productInfo}>
-                <img src={item.image} />
+                <img src={item.image} className={styles.image}/>
                 <div className={styles.namePrice}>
               <div className={styles.text}> {item.title} </div>
               <div className={styles.price}>${parseFloat(item.price * item.number).toFixed(2)}</div>

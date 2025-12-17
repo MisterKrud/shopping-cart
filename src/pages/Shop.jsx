@@ -27,7 +27,7 @@ const Shop = () => {
             <div className={styles.card} key={product.id}>
               <div className={styles.imgContainer}>
                 <img
-                  className={styles.img}
+                  className={styles.image}
                   src={product.image}
                   alt={product.title}
                 />

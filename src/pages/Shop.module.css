@@ -1,14 +1,17 @@
-img {
+.image {
   width: 120px;
   height: 120px;
 }
 
 @media (max-width: 400px) {
-  img {
+  .image {
     width: 100px;
     height: 100px;
   }
+ 
 }
+
+
 
 .shopContainer {
   display: grid;
@@ -36,6 +39,12 @@ img {
   padding: 0.2rem 0.5rem 0.2rem 1.8rem;
   border: none;
   background-color: #b1b0b0;
+}
+
+@media (max-width: 450px){
+    .input{
+    padding: .655rem 0.5rem .64rem 1.8rem;
+  }
 }
 
 .changeButton {

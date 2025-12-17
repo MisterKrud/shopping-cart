@@ -6,6 +6,7 @@
 .card {
   position: relative;
   display: flex;
+ 
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
@@ -44,7 +45,7 @@
   font-weight: bold;
 }
 
-img {
+.image {
   height: 50px;
   width: 50px;
   padding: 0.6rem;
@@ -143,12 +144,11 @@ img {
   border: none;
 }
 
-@media (max-width: 465px) {
-  .cartContainer {
-    font-size: 0.7rem;
-  }
-  img {
-    height: 30px;
-    padding: 0.4rem;
-  }
+@media(max-width:450px){
+    div{display: block !important}
+    .changeNumber{
+        display: flex !important;
+        justify-content: center;
+    }
+    
 }
