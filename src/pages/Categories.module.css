@@ -1,6 +1,8 @@
 .p{
     text-transform: capitalize;
-    padding: 0 .5rem;
+    padding: 0.2rem .6rem;
+    background-color:none;
+
     margin: .1rem 0;
 }
 
@@ -10,3 +12,4 @@
     justify-content: center;
     width: 100%;
 }
+
