@@ -41,7 +41,7 @@ const Cart = () => {
       </div>
       <div>
         <p>{numberPurchased} Items</p>
-        <strong>Total: ${totalPrice}</strong>
+        <strong>Total: ${parseFloat(totalPrice).toFixed(2)}</strong>
       </div>
     </div>
   ) : (

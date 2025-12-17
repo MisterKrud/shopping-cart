@@ -19,13 +19,13 @@ const Categories = ({ products, onClick }) => {
         <div className={style.categories}>
           {categories.map((category) => {
             return (
-              <p
+              <button
                 className={style.p}
                 key={category}
                 onClick={() => onClick(category)}
               >
                 {category}
-              </p>
+              </button>
             );
           })}
         </div>

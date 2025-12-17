@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router"
 import Categories from "./Categories"
+import style from "./Shop.module.css"
 
 
 const Shop = ()  => {
@@ -15,7 +16,7 @@ const Shop = ()  => {
      
     return (
         <>
-        <Categories products={products} onClick={()=>handleFilter(category)}/>
+        <Categories products={products} onClick={handleFilter}/>
         <div>{filteredProducts.map(product => {
         return(
             <div key={product.id}>
@@ -23,11 +24,14 @@ const Shop = ()  => {
             <img src={product.image} alt={product.title} />
             <p>{product.description}</p>
             <p>${product.price}</p>
-            <button onClick = {() =>handleDecrement(product.id)}>-</button>
-            <input type="number" value={product.number} onChange={(e)=>handleQuantityChange(e,product.id)} />
-            <button onClick = {()=> handleIncrement(product.id)}>+</button>
-            <br />
-            <button onClick ={()=> addToCart(product.id)}>Add to cart</button>
+            <div className= {style.buttonContainer}>
+            <button className={style.changeButton} onClick = {() =>handleDecrement(product.id)}>-</button>
+            <input className={style.input} type="text" inputmode="numeric" value={product.number} onChange={(e)=>handleQuantityChange(e,product.id)} />
+            <button className={style.changeButton} onClick = {()=> handleIncrement(product.id)}>+</button>
+           
+            </div>
+            <button className={style.addToCartButton} onClick ={()=> addToCart(product.id)}>Add to cart</button>
+            
             <hr />
             </div>
         )

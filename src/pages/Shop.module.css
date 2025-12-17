@@ -1,0 +1,28 @@
+.input{
+    width: 1.5rem;
+    padding: .2rem .5rem;
+    border: rgb(201, 199, 199) solid 1px;
+    background-color: aliceblue;
+    border-radius: .5rem;
+}
+
+.changeButton{
+    padding: 0 .6rem .2rem;
+    border: gray solid .2px;
+    margin: 0 .1rem;;
+
+ 
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+
+}
+
+.addToCartButton{
+    padding: .4rem;
+    border: gray solid .2px;
+    margin: 0 .1rem;;
+}
+

@@ -91,7 +91,9 @@ const AppState = () => {
     const newArray = [...products];
     const currentItemIndex = newArray.findIndex((product) => product.id === id);
     const newProduct = newArray[currentItemIndex];
+    e.target.value=== "" ? e.target.value = 0 : e.target.value;
     newProduct.number = parseInt(e.target.value);
+    
     newArray.splice(currentItemIndex, 1, newProduct);
     setProducts(newArray);
   };
@@ -135,7 +137,7 @@ const AppState = () => {
   return (
     products.length > 0 && (
       <>
-        <NavBar items={numberofItems} price={totalPrice} />
+        <NavBar items={numberofItems} price={parseFloat((totalPrice*10)/10).toFixed(2)} />
         
 
        
