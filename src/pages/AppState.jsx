@@ -11,7 +11,7 @@ const AppState = () => {
   const [data, setData] = useState(null);
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState(null);
-  const [numberofItems, setNumberOfItems] = useState(0);
+  const [numberOfItems, setNumberOfItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -143,7 +143,7 @@ const AppState = () => {
   return (
     products.length > 0 && (
       <>
-        <NavBar items={numberofItems} price={parseFloat((totalPrice*10)/10).toFixed(2)} />
+        <NavBar items={numberOfItems} price={parseFloat((totalPrice*10)/10).toFixed(2)} />
         
 
        
@@ -158,7 +158,7 @@ const AppState = () => {
           addToCart,
           removeFromCart,
           handleQuantityChange,
-          numberofItems,
+          numberOfItems,
           totalPrice,
           }}
           />
