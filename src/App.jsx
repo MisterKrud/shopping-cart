@@ -1,23 +1,12 @@
-
-import './App.css'
-import Home from './pages/Home'
-import Shop from './pages/Shop'
-import Cart from './pages/Cart'
-import NavBar from './components/NavBar'
-import Categories from './pages/Categories'
+import "./App.css"
+import { Outlet } from "react-router";
 
 function App() {
- 
-
   return (
-    <>
-    
-      <Home />
-      <Shop />
-    
-
-    </>
-  )
+ 
+      <AppState />
+  
+  );
 }
 
-export default App
+export default App;

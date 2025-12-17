@@ -1,25 +1,32 @@
 import App from "./App";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Categories from "./pages/Categories";
-import NavBar from "./components/NavBar";
+
 import Cart from "./pages/Cart";
 import Shop from "./pages/Shop";
+import AppState from "./pages/AppState";
 
 const routes = [
+    // {
+    //     path: "/",
+    //     element: <App />,
+    // },
+  
+    // {
+    //     path: "/",
+    //     element: <Home />
+    // },
+
     {
         path: "/",
-        element: <App />,
-    },
-  
-    {
-        path: "home",
-        element: <Home />
-    },
-    {
-        path: "shop",
-        element: <Shop />
-    },
+        element: <AppState />,
+        children: [
+            {index: true, element: <Home />},
+            {path: "home", element: <Home />},
+            {path: "shop", element: <Shop />},
+            {path: "cart", element: <Cart />}
+        ]
+    }
+
     
 
 ]

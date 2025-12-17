@@ -1,14 +1,15 @@
-import PropTypes from "prop-types";
-// import Shop from "./Shop"
 
-const Cart = ({
+import { useOutletContext } from "react-router-dom";
+
+const Cart = () => {
+  const {
   products,
-  onIncrementClick,
-  onDecrementClick,
-  onRemoveClick,
+  handleDecrement,
+  handleIncrement,
+  removeFromCart,
   numberPurchased,
   totalPrice,
-}) => {
+} = useOutletContext();
   const cartItems = products.filter((product) => product.inCart === true);
   let priceArray = [];
   let productNumber = [];
@@ -30,10 +31,10 @@ const Cart = ({
                 </span>{" "}
                 ${item.price * item.number}
               </p>
-              <button onClick={() => onIncrementClick(item.id)}>+</button>
+              <button onClick={() => handleDecrement(item.id)}>-</button>
               <p>{item.number}</p>
-              <button onClick={() => onDecrementClick(item.id)}>-</button>
-              <button onClick={() => onRemoveClick(item.id)}>Remove</button>
+              <button onClick={() => handleIncrement(item.id)}>+</button>
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
             </div>
           );
         })}
@@ -50,19 +51,5 @@ const Cart = ({
   );
 };
 
-Cart.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      inCart: PropTypes.bool.isRequired,
-    })
-  ),
-  onIncrementClick: PropTypes.func,
-  onDecrementClick: PropTypes.func,
-  onRemoveClick: PropTypes.func,
-  numberPurcahsed: PropTypes.number,
-  totalPrice: PropTypes.number,
-};
+
 export default Cart;
