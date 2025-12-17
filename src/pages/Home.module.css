@@ -19,16 +19,14 @@
   background-color: rgb(201, 170, 230);
 }
 
-.card > div {
-  padding: 3rem;
-}
-a {
+
+.linkComponent {
   text-decoration: none;
   font-size: 2rem;
   padding: 2rem;
 }
 
-a:hover {
+.linkComponent:hover {
   color: white;
   font-weight: bold;
 }
@@ -38,13 +36,13 @@ a:hover {
   margin-bottom: 0;
 }
 
-h1 {
+.h1 {
   border: #162b3f 3px solid;
   padding-bottom: 1rem;
   transform: skew(-20deg);
   box-shadow: 3px 3px 3px;
 }
-h1::first-letter {
+.h1::first-letter {
   font-size: 4rem;
 }
 
@@ -59,4 +57,37 @@ h1::first-letter {
 
 .icon:hover {
   color: white;
+}
+
+@media(max-width: 470px){
+    .homeContainer{
+       
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .h1{
+        font-size: 2.7rem;
+        padding: 1rem 2.5rem;
+         border: #162b3f 2px solid;
+        
+    }
+    .h1::first-letter{
+        font-size: 3rem;
+    }
+    .card{
+        padding: 1rem;
+    }
+}
+
+@media(max-width: 345px){
+     .h1{
+        font-size: 2rem;
+        padding: 1rem 2.5rem;
+         border: #162b3f 1px solid;
+        
+    }
+    .h1::first-letter{
+        font-size: 2.5rem;
+    }
 }

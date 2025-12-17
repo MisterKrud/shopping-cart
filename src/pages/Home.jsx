@@ -4,8 +4,8 @@ import styles from "./Home.module.css"
 
 const Home = () =>{
     return(
-        <>
-            <h1>$hopCart</h1>
+        <div className={styles.homeContainer}>
+            <h1 className={styles.h1}>$hopCart</h1>
             <div className={styles.subtitle}>Your one-stop-shop for putting your shopping in a cart!</div>
             <div className={styles.cardContainer}>
             <div className={styles.card}>
@@ -19,7 +19,7 @@ const Home = () =>{
             <div className={styles.frontPageLink}><ShoppingBag className={styles.icon} size={128}/></div><div className={styles.frontPageLink}>See what's in your shopping bag</div></div> </Link>
             </div>
             </div>
-        </>
+        </div>
     )
 }
 
